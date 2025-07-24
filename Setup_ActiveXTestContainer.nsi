@@ -11,7 +11,7 @@ Unicode true
 
 !define APP "ActiveXTestContainer"
 
-!system 'MySign "bin\x86\TstCon.exe" "bin\x64\TstCon.exe"'
+!system 'MySign "bin\x86\TstCon.exe" "bin\x64\TstCon.exe" "bin\arm64\TstCon.exe"'
 !finalize 'MySign "%1"'
 
 ; The name of the installer
@@ -51,6 +51,8 @@ Section "" ;No components page, name is not important
   File /r         "bin\x86\*.*"
   SetOutPath "$INSTDIR\x64"
   File /r         "bin\x64\*.*"
+  SetOutPath "$INSTDIR\arm64"
+  File /r         "bin\arm64\*.*"
   
   ExecShell "open" "$INSTDIR"
   
